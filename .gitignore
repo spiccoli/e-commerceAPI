@@ -1,0 +1,27 @@
+# Binaries
+/bin/
+/*.exe
+/*.dll
+/*.so
+/*.dylib
+
+# Vendor directory
+/vendor/
+
+# IDE and editor settings
+/.idea/
+/.vscode/
+/*.swp
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Environment variables
+.env
+
+# Configuration files
+config/env.go
