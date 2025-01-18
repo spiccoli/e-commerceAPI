@@ -1,4 +1,4 @@
-Practice project for building an E-Commerce API <br>
+<h1>Practice project for building an E-Commerce API </h1><br>
 Planned features:<br>
 User Authentication (Register & Login)<br>
 Product Listing (Add, Update, Delete, Fetch Products)<br>
