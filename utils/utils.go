@@ -3,21 +3,25 @@ package utils
 import (
 	"encoding/json"
 	"fmt"
+	"github.com/go-playground/validator/v10"
 	"net/http"
 )
 
-func ParseJson(r *http.Request, payload any) error {
+var Validate = validator.New()
+
+func ParseJSON(r *http.Request, payload any) error {
 	if r.Body == nil {
 		return fmt.Errorf("request body is empty")
 	}
 	return json.NewDecoder(r.Body).Decode(payload)
 }
-func SerializeJson(w http.ResponseWriter, status int, payload any) error {
+
+func WriteJSON(w http.ResponseWriter, status int, v any) error {
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(status)
-	return json.NewEncoder(w).Encode(payload)
+	return json.NewEncoder(w).Encode(v)
 }
 
 func WriteError(w http.ResponseWriter, status int, err error) {
-	SerializeJson(w, status, map[string]string{"error": err.Error()})
+	WriteJSON(w, status, map[string]string{"error": err.Error()})
 }
